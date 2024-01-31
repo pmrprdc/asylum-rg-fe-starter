@@ -768,3 +768,34 @@
         width: 35%;
     }
 }
+
+
+//////// ticket 1 
+
+
+.graphs-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  
+    @media (max-width: 768px) { // Adjust this breakpoint as needed
+      flex-direction: column;
+    }
+  }
+  
+  .graph-item {
+    margin: 10px;
+    text-align: center;
+  
+    img {
+      width: 100%;
+      max-width: 300px; // Adjust size as needed
+      margin-bottom: 10px;
+    }
+  
+    button {
+      // Add any specific button styles if needed
+    }
+  }
