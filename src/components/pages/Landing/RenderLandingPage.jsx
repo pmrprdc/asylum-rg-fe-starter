@@ -31,7 +31,20 @@ function RenderLandingPage(props) {
         </div>
       </div>
 
-      {/* Graphs Section: Add code here for the graphs section for your first ticket */}
+      <div className="graphs-container">
+        <div className="graph-item">
+          <img src={HrfPhoto[0]} alt="Grant Rates by Office" />
+          <Button>View Office Data</Button>
+        </div>
+        <div className="graph-item">
+          <img src={HrfPhoto[1]} alt="Grant Rates by Nationality" />
+          <Button>View Nationality Data</Button>
+        </div>
+        <div className="graph-item">
+          <img src={HrfPhoto[2]} alt="Grant Rates Over Time" />
+          <Button>View Historical Data</Button>
+        </div>
+      </div>
       {/* <div className="graphs-section"> */}
       <div className="view-more-data-btn-container">
         <Button
@@ -49,7 +62,7 @@ function RenderLandingPage(props) {
         </div>
         <div className="middle-section-text-container">
           <h3>
-            Human Rights First has created a search tool to give you a
+            Human Rights! First has created a search tool to give you a
             user-friendly way to explore a data set of asylum decisions between
             FY 2016 and May 2021 by the USCIS Asylum Office, which we received
             through a Freedom of Information Act request. You can search for
