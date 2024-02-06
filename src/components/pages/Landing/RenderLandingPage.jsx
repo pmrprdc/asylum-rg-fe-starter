@@ -33,16 +33,19 @@ function RenderLandingPage(props) {
 
       <div className="graphs-container">
         <div className="graph-item">
-          <img src={GrantRatesByNationalityImg} alt="Grant Rates by Office" />
-          <Button>View Office Data</Button>
+          <img src={GrantRatesByOfficeImg} alt="Grant Rates by Office" />
+          <p>Search Grant Rates By Office</p>
         </div>
         <div className="graph-item">
-          <img src={GrantRatesByOfficeImg} alt="Grant Rates by Nationality" />
-          <Button>View Nationality Data</Button>
+          <img
+            src={GrantRatesByNationalityImg}
+            alt="Grant Rates by Nationality"
+          />
+          <p>Search Grant Rates By Nationality</p>
         </div>
         <div className="graph-item">
           <img src={GrantRatesOverTimeImg} alt="Grant Rates Over Time" />
-          <Button>View Historical Data</Button>
+          <p>Search Grant Rates Over Time</p>
         </div>
       </div>
       {/* <div className="graphs-section"> */}
@@ -53,6 +56,13 @@ function RenderLandingPage(props) {
           onClick={() => history.push('/graphs')}
         >
           View the Data
+        </Button>
+        <Button
+          type="default"
+          style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+          onClick={() => history.push('/graphs')}
+        >
+          Download the Data
         </Button>
       </div>
 
