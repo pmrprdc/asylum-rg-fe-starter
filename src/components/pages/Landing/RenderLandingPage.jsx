@@ -1,8 +1,8 @@
 import React from 'react';
 // ADD IMPORTS BACK FOR GRAPHS SECTION
-// import GrantRatesByOfficeImg from '../../../styles/Images/bar-graph-no-text.png';
-// import GrantRatesByNationalityImg from '../../../styles/Images/pie-chart-no-text.png';
-// import GrantRatesOverTimeImg from '../../../styles/Images/line-graph-no-text.png';
+import GrantRatesByOfficeImg from '../../../styles/Images/bar-graph-no-text.png';
+import GrantRatesByNationalityImg from '../../../styles/Images/pie-chart-no-text.png';
+import GrantRatesOverTimeImg from '../../../styles/Images/line-graph-no-text.png';
 import HrfPhoto from '../../../styles/Images/paper-stack.jpg';
 import '../../../styles/RenderLandingPage.less';
 import { Button } from 'antd';
@@ -33,15 +33,15 @@ function RenderLandingPage(props) {
 
       <div className="graphs-container">
         <div className="graph-item">
-          <img src={HrfPhoto[0]} alt="Grant Rates by Office" />
+          <img src={GrantRatesByNationalityImg} alt="Grant Rates by Office" />
           <Button>View Office Data</Button>
         </div>
         <div className="graph-item">
-          <img src={HrfPhoto[1]} alt="Grant Rates by Nationality" />
+          <img src={GrantRatesByOfficeImg} alt="Grant Rates by Nationality" />
           <Button>View Nationality Data</Button>
         </div>
         <div className="graph-item">
-          <img src={HrfPhoto[2]} alt="Grant Rates Over Time" />
+          <img src={GrantRatesOverTimeImg} alt="Grant Rates Over Time" />
           <Button>View Historical Data</Button>
         </div>
       </div>
