@@ -71,7 +71,7 @@ function RenderLandingPage(props) {
           <img src={HrfPhoto} alt="Human Rights First" className="hrf-img" />
         </div>
         <div className="middle-section-text-container">
-          <h3>
+          <p>
             Human Rights! First has created a search tool to give you a
             user-friendly way to explore a data set of asylum decisions between
             FY 2016 and May 2021 by the USCIS Asylum Office, which we received
@@ -79,7 +79,7 @@ function RenderLandingPage(props) {
             information on asylum grant rates by year, nationality, and asylum
             office, visualize the data with charts and heat maps, and download
             the data set
-          </h3>
+          </p>
         </div>
       </div>
       <div>
