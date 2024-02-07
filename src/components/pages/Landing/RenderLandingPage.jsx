@@ -31,7 +31,7 @@ function RenderLandingPage(props) {
         </div>
       </div>
 
-      <div className="graphs-container">
+      <div className="graphs-section">
         <div className="graph-item">
           <img src={GrantRatesByOfficeImg} alt="Grant Rates by Office" />
           <p>Search Grant Rates By Office</p>
