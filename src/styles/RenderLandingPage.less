@@ -1,3 +1,7 @@
+@acumin-pro-italic: 'AcuminProItalic';
+@acumin-pro-medium: 'AcuminProMedium';
+@acumin-pro-medium-italic: 'AcuminProMediumItalic';
+@acumin-pro-regular: 'AcuminProRegular';
 @main-color: #404C4A;
 @secondary-color: #707070;
 @white: #FFFFFF;
@@ -7,6 +11,7 @@
 @tablet-small: ~"(min-width: 481px) and (max-width: 768px)";
 @tablet-large: ~"(min-width: 769px) and (max-width: 1024px)";
 @laptop: ~"(min-width: 1025px) and (max-width: 1280px)";
+
 
 .header {
     background-color: @main-color;
@@ -735,6 +740,10 @@
 }
 
 @media @laptop {
+    * {
+        font-family: @acumin-pro-italic;
+    }
+
     .header {
         height: 35vh;
     }
@@ -799,13 +808,14 @@
         width: 35%;
         text-align: center;
     }
-}
+
 
 
 //////// ticket 1 
 
 .main h1 {
     font-size: 2rem;
+    
 }
 .header-text-container {
     min-width: 399px;
@@ -822,9 +832,6 @@
     align-items: center;
     flex-wrap: wrap;
   
-    @media (max-width: 768px) { // Adjust this breakpoint as needed
-      flex-direction: column;
-    }
   }
   .graphs-section {
     display: flex;
@@ -866,8 +873,11 @@
     
     font-size: 2rem;
     text-align: center;
+    margin: 4rem;
     
   }
   .bottom-section-stats-container p {
     margin: 1rem;
   }
+
+}
