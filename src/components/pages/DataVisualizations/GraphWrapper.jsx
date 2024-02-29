@@ -15,7 +15,7 @@ import { colors } from '../../../styles/data_vis_colors';
 import ScrollToTopOnMount from '../../../utils/scrollToTopOnMount';
 
 const mapStateToProps = state => ({
-  citizenshipMapAll: state.vizReducer.CitizenshipMapAll,
+  vizReducer: state.vizReducer,
 });
 
 const { background_color } = colors;
@@ -54,7 +54,12 @@ function GraphWrapper(props) {
         break;
     }
   }
-  function updateStateWithNewData(years, view, office, stateSettingCallback) {
+  async function updateStateWithNewData(
+    years,
+    view,
+    office,
+    stateSettingCallback
+  ) {
     /*
           _                                                                             _
         |                                                                                 |
@@ -78,40 +83,22 @@ function GraphWrapper(props) {
     */
 
     if (office === 'all' || !office) {
-      axios
-        .get('https://hrf-asylum-be-b.herokuapp.com/cases/fiscalsummary', {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
-          params: {
-            from: years[0],
-            to: years[1],
-          },
-        })
-        .then(result => {
-          console.log('test data');
-          console.log(test_data);
-          console.log('result.data');
-          console.log(result.data);
-          stateSettingCallback(view, office, [result.data]); // <-- `test_data` here can be simply replaced by `result.data` in prod!
-        })
-        .catch(err => {
-          console.error(err);
-        });
+      // getting data from both sources to feed into global state
+      const fiscalSummaryResponse = await axios.get(
+        `https://hrf-asylum-be-b.herokuapp.com/cases/fiscalsummary?from=${years[0]}&to=${years[1]}`
+      );
+      const citizenshipDataResponse = await axios.get(
+        `https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipsummary?from=${years[0]}&to=${years[1]}`
+      );
+      //  COMBINING DATA
+      const fiscalsummary = fiscalSummaryResponse.data;
+      const citizenshipData = citizenshipDataResponse.data;
+      fiscalsummary.citizenshipResults = citizenshipData;
+      //setting state
+      stateSettingCallback(view, office, [fiscalsummary]);
+      console.log(fiscalsummary);
     } else {
-      axios
-        .get('https://hrf-asylum-be-b.herokuapp.com/cases/fiscalsummary', {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
-          params: {
-            from: years[0],
-            to: years[1],
-            office: office,
-          },
-        })
-        .then(result => {
-          stateSettingCallback(view, office, [result.data]); // <-- `test_data` here can be simply replaced by `result.data` in prod!
-        })
-        .catch(err => {
-          console.error(err);
-        });
+      console.log('an office was selected');
     }
   }
   const clearQuery = (view, office) => {
