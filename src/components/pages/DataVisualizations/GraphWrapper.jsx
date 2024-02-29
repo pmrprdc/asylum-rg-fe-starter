@@ -96,9 +96,17 @@ function GraphWrapper(props) {
       fiscalsummary.citizenshipResults = citizenshipData;
       //setting state
       stateSettingCallback(view, office, [fiscalsummary]);
-      console.log(fiscalsummary);
     } else {
-      console.log('an office was selected');
+      const singleOfficeFiscalResponse = await axios.get(
+        `https://hrf-asylum-be-b.herokuapp.com/cases/fiscalsummary?from=${years[0]}&to=${years[1]}&office=${office}`
+      );
+      const citizenshipDataResponse = await axios.get(
+        `https://hrf-asylum-be-b.herokuapp.com/cases/citizenshipsummary?from=${years[0]}&to=${years[1]}`
+      );
+      const fiscalsummary = singleOfficeFiscalResponse.data;
+      const citizenshipData = citizenshipDataResponse.data;
+      fiscalsummary.citizenshipResults = citizenshipData;
+      stateSettingCallback(view, office, [fiscalsummary]);
     }
   }
   const clearQuery = (view, office) => {
