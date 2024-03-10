@@ -3,7 +3,7 @@ import { Image } from 'antd';
 import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
-
+import AuthNav from '../auth/authnav';
 const { primary_accent_color } = colors;
 
 function HeaderContent() {
@@ -21,16 +21,14 @@ function HeaderContent() {
           <Image width={100} src={Logo} preview={false} alt="HRF logo white" />
         </a>
       </div>
-      <div>
+      <div className="auth-links">
         <Link to="/" style={{ color: '#E2F0F7', paddingRight: '75px' }}>
           Home
         </Link>
         <Link to="/graphs" style={{ color: '#E2F0F7' }}>
           Graphs
         </Link>
-        <Link to="/" style={{ color: '#E2F0F7', paddingLeft: '75px' }}>
-          Log In
-        </Link>
+        <AuthNav className="auth-nav-system" />
       </div>
     </div>
   );
